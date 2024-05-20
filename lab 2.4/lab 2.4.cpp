@@ -11,11 +11,11 @@ int FindSecondMaxIndex(T* arr, int size)
     if (size < 2)
     {
         std::cerr << "El tamaño de la matriz debe ser de al menos 2.\n";
-        return -1;
+        return -1;   //como retorno generalmente significa una condición especial que depende del contexto de la función en la que se usa.
     }
 
-    int maxIndex = 0;
-    int secondMaxIndex = -1;
+    int maxIndex = 0;    //Esto es útil como un punto de referencia para comenzar la búsqueda del máximo real 
+    int secondMaxIndex = -1;   //-1 es una convención común para indicar que no se ha encontrado un segundo máximo todavía
 
     for (int i = 1; i < size; ++i)
     {
@@ -31,7 +31,7 @@ int FindSecondMaxIndex(T* arr, int size)
     }
 
 }
-template <typename T>
+template <typename T>   //estás creando una plantilla que te permite escribir una función que puede funcionar con diferentes tipos de datos
 class Matrix {
 private:
     std::vector<std::vector<T>> data;
@@ -40,7 +40,7 @@ private:
 
 public:
     Matrix(unsigned int rows, unsigned int cols) : m(rows), n(cols) {
-        data.resize(m, std::vector<T>(n, 0));
+        data.resize(m, std::vector<T>(n, 0));   //std::vector<T>(n, 0): Esto crea un vector temporal con n elementos
     }
 
     ~Matrix() {}
@@ -58,7 +58,7 @@ public:
         }
     }
 
-    friend std::ostream& operator<<(std::ostream& os, const Matrix<T>& matrix) {
+    friend std::ostream& operator<<(std::ostream& os, const Matrix<T>& matrix) {  //Cuando una función se declara como amiga significa que tiene acceso a los miembros privados y protegidos de la clase a la que se le ha otorgado la amistad.
         for (unsigned int i = 0; i < matrix.m; ++i) {
             for (unsigned int j = 0; j < matrix.n; ++j) {
                 os << matrix.data[i][j] << ' ';
